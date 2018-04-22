@@ -42,4 +42,12 @@ public class RecipeTest {
         assertEquals("Water", recipe.title);
         assertEquals("Put glass under tap. Open tap. Close tap. Drink.", recipe.description);
     }
+
+    @Test
+    public void nothing() {
+        InputStream nothing = RecipeTest.class.getResourceAsStream("/recipes/nothing.txt");
+        Recipe recipe = Recipe.readFromStream(nothing);
+        assertNotNull(recipe);
+        assertEquals(null, recipe.id);
+    }
 }
