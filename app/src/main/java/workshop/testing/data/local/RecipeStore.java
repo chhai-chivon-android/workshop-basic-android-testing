@@ -22,12 +22,10 @@ public class RecipeStore {
         try {
             String[] fileNames = context.getAssets().list(directory);
             for (String fileName : fileNames) {
-                System.out.println("FILENAME " + fileName);
                 try {
                     file = new File(directory, fileName);
                     stream = context.getAssets().open(file.getPath());
                     Recipe recipe = Recipe.readFromStream(stream);
-                    System.out.println("TITLE " + recipe.title);
                     recipes.add(recipe);
                     map.put(recipe.id, recipe);
                 } catch (IOException e) {
